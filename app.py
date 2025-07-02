@@ -11,11 +11,8 @@ import zipfile
 import preprocessor,helper
 
 if not os.path.exists('athlete_events.csv'):
-    # Step 2: If not, unzip it from the .zip file
     with zipfile.ZipFile('athlete_events.zip', 'r') as zip_ref:
-        zip_ref.extractall()  # Extracts in the current directory
-
-# Step 3: Now read the CSV as usual
+        zip_ref.extractall()  
 df = pd.read_csv('athlete_events.csv')
 region_df=pd.read_csv('noc_regions.csv')
 
@@ -81,7 +78,7 @@ if user_menu=='OVERALL ANALYSIS':
         st.title(nations)
     with col3:
         st.header("Athletes")
-        st.title(athletes)
+        st.title(atheletes)
 
 
     nations_overtime=helper.data_overtime(df,'region')
