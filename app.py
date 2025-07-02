@@ -78,10 +78,10 @@ if user_menu=='OVERALL ANALYSIS':
         st.title(events)
     with col2:
         st.header("Nations")
-        st.title(atheletes)
+        st.title(nations)
     with col3:
         st.header("Athletes")
-        st.title(nations)
+        st.title(athletes)
 
 
     nations_overtime=helper.data_overtime(df,'region')
