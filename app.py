@@ -4,10 +4,19 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+import os
+import zipfile
+
 
 import preprocessor,helper
 
-df=pd.read_csv('athlete_events.csv')
+if not os.path.exists('athlete_events.csv'):
+    # Step 2: If not, unzip it from the .zip file
+    with zipfile.ZipFile('athlete_events.zip', 'r') as zip_ref:
+        zip_ref.extractall()  # Extracts in the current directory
+
+# Step 3: Now read the CSV as usual
+df = pd.read_csv('athlete_events.csv')
 region_df=pd.read_csv('noc_regions.csv')
 
 df=preprocessor.preprocess(df,region_df)
